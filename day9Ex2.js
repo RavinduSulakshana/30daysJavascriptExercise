@@ -93,6 +93,5 @@ function findMostFrequentStartingLetter(countries) {
     return mostFrequentLetter;
 }
 
-// Example usage:
 const mostFrequentStartingLetter = findMostFrequentStartingLetter(countries);
 console.log(mostFrequentStartingLetter);  
