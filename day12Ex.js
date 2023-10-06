@@ -30,3 +30,39 @@ console.log(is_valid_variable('0firstName'));
 console.log(is_valid_variable('_firstName$'));
  */
 
+
+/* Level 2 */
+/* 
+// 1) Write a function called tenMostFrequentWords which get the ten most frequent word from a string?
+
+        function tenMostFrequentWords(paragraph){
+        const word = paragraph.toLowerCase().split(/\s+/);
+
+        const wordFrequency={};
+        word.forEach(word => {
+            if(wordFrequency[word]){
+                wordFrequency[word]++;
+            }else{
+                wordFrequency[word]=1;
+            }
+        });
+        console.log(wordFrequency);
+
+        //convert to wordFrequency object into array
+        const wordFrequencyArray = Object.keys(wordFrequency).map((word)=>({
+            word,
+            frequency:wordFrequency[word]
+        }))
+
+        //sort array
+        wordFrequencyArray.sort((a,b)=>b.frequency-a.frequency);
+
+        //get top 10 word
+        const topTenWord=wordFrequencyArray.slice(0,10);
+
+        return topTenWord.map((entry)=>entry.word);
+    }
+    paragraph = `I love teaching. If you do not love teaching what else can you love. I love Python if you do not love something which can give you all the capabilities to develop an application what else can you love.`;
+
+    console.log(tenMostFrequentWords(paragraph));
+ */
