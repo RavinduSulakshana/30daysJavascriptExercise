@@ -138,3 +138,4 @@ console.log(studentJson2);
 
 const passedTxt = JSON.parse(txt);
 console.log(passedTxt);
+exit
