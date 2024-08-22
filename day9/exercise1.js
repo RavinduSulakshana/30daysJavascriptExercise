@@ -59,12 +59,17 @@ console.log(countryE);
 const validPrices = products.filter(product => typeof product.price == 'number' && !isNaN(product.price) && product.price!=null)
 console.log(validPrices);
 
-
-
 //Declare a function called getStringLists which takes an array as a parameter and then returns an array only with string items.
+function getStringLists(arr){
+    return arr.filter(item => typeof item ==='string')
+}
 
+console.log(getStringLists(countries))
+console.log(getStringLists(names))
+console.log(getStringLists(numbers))
+console.log(getStringLists(products.map(product=> product.price)))
 
-//Use reduce to sum all the numbers in the numbers array.
+//Use reduce to sum all the nmbers in the numbers array.
 
 
 //Use reduce to concatenate all the countries and to produce this sentence: Estonia, Finland, Sweden, Denmark, Norway, and IceLand are north European countries
