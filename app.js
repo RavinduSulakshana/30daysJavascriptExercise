@@ -1,17 +1,25 @@
-const a = [4, 5, 8, 9];
-const b = [3, 4, 5, 7];
-const A = new Set(a);
-const B = new Set(b);
+import { countries_data } from "./countries_data.js";
+//How many languages are there in the countries object file.
+const languages = new Set();
+countries_data.forEach((country) => {
+  country.languages.forEach((language) => {
+    languages.add(language);
+  });
+});
+console.log(languages.size); 
 
-//Find a union b
-const c = [...a, ...b];
-const AunionB = new Set(c);
-console.log(AunionB);
-
-//Find a intersection b
-const A_intersection_B = a.filter((num) => B.has(num));
-console.log(A_intersection_B);
-
-//Find a with b
-const A_with_B = a.filter(num=>!B.has(num))
-console.log(A_with_B);
+//Use the countries data to find the 10 most spoken languages:
+function mostSpokenLanguages(arr, count) {
+  const langCount = {};
+  arr.forEach((country) => {
+    country.languages.forEach((language) => {
+      langCount[language] = (langCount[language] || 0) + 1;
+    });
+  });
+  const sortedLanguage = Object.entries(langCount).sort((a, b) => b[1] - a[1]);
+  const mostCommonlang = sortedLanguage.slice(0, count).map(([language,count])=>{
+    return {[language]:count}
+  })
+  return mostCommonlang
+}
+console.log(mostSpokenLanguages(countries_data, 10));
