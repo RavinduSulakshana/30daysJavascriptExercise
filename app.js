@@ -51,17 +51,75 @@ const users = [
   },
 ];
 
-//Destructure and assign the elements of constants array to e, pi, gravity, humanBodyTemp, waterBoilingTemp.
-let [e, pi, gravity, humanBodyTemp, waterBoilingTemp] = constants;
-console.log(e, pi, gravity, humanBodyTemp, waterBoilingTemp);
+//Iterate through the users array and get all the keys of the object using destructuring
+for (const { name, scores, skills, age } of users) {
+  console.log(name);
+  console.log(scores);
+  console.log(skills);
+  console.log(age);
+  console.log("------------------------------------------------------");
+}
 
-//Destructure and assign the elements of countries array to fin, est, sw, den, nor
-let [fin, est, sw, den, nor] = countries;
-console.log(fin, est, sw, den, nor);
+//Find the persons who have less than two skills
+const lessThanTwoSkills = users.filter((user) => user.skills.length < 2);
+console.log(lessThanTwoSkills);
 
-//Destructure the rectangle object by its properties or keys.
-let { width, height, area, perimeter } = rectangle;
-console.log(width);
-console.log(height);
-console.log(area);
-console.log(perimeter);
+// Write a function called convertArrayToObject which can convert the array to a structure object.
+
+const students = [
+  ["David", ["HTM", "CSS", "JS", "React"], [98, 85, 90, 95]],
+  ["John", ["HTM", "CSS", "JS", "React"], [85, 80, 85, 80]],
+];
+
+function convertArrayToObject(students) {
+  return students.map(([name, skills, scores]) => ({
+    name,
+    skills,
+    scores,
+  }));
+}
+
+console.log(convertArrayToObject(students));
+
+/* Copy the student object to newStudent without mutating the original object. In the new object add the following ?
+    Add Bootstrap with level 8 to the front end skill sets
+    Add Express with level 9 to the back end skill sets
+    Add SQL with level 8 to the data base skill sets
+    Add SQL without level to the data science skill sets
+ */
+// Add Bootstrap with level 8 to the front end skill sets
+const student = {
+  name: "David",
+  age: 25,
+  skills: {
+    frontEnd: [
+      { skill: "HTML", level: 10 },
+      { skill: "CSS", level: 8 },
+      { skill: "JS", level: 8 },
+      { skill: "React", level: 9 },
+    ],
+    backEnd: [
+      { skill: "Node", level: 7 },
+      { skill: "GraphQL", level: 8 },
+    ],
+    dataBase: [{ skill: "MongoDB", level: 7.5 }],
+    dataScience: ["Python", "R", "D3.js"],
+  },
+};
+
+const newStudent = { ...student };
+newStudent.skills.frontEnd.push({ skill: "Bootstrap", level: 8 });
+console.log(newStudent.skills);
+
+// Add Express with level 9 to the back end skill sets
+
+newStudent.skills.backEnd.push({ skill: "Express", level: 9 });
+console.log(newStudent.skills);
+
+//    Add SQL with level 8 to the data base skill sets
+newStudent.skills.dataBase.push({ skill: "SQL", level: 8 });
+console.log(newStudent.skills);
+
+//    Add SQL without level to the data science skill sets
+newStudent.skills.dataScience.push("SQL");
+console.log(newStudent.skills);
