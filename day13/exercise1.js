@@ -5,7 +5,7 @@ import { countries } from "./countries.js";
     Use console.group() to group logs
  */
 
-    //Display the countries array as a table
+//Display the countries array as a table
 console.group("countries array as a table");
 console.table(countries);
 console.groupEnd();
