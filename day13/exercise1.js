@@ -1,4 +1,4 @@
-import { countries } from "./countries.js";
+import { countries } from "../countries.js";
 /* 
     Display the countries array as a table
     Display the countries object as a table
